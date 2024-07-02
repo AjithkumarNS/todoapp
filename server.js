@@ -25,6 +25,9 @@ app.use(cors({
 //Routes
 app.use('/api/todo', authenticate, todoRoutes)
 app.use('/api', authRoutes);
+app.get("/", async (req, res) => {
+    return res.status(200).json({ message: "Todo app server is up and running!"})
+})
 
 app.listen(PORT, () => {
     console.log(`Todo app server is listening on port ${PORT}`)
